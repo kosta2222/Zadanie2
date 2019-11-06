@@ -34,7 +34,7 @@ def handle_readables(readables, server,server_json_file):
             try:
                 data = resource.recv(1024)
                 with open(server_json_file,'a') as f:
-                    json.dump(data.decode('utf-8'),f)
+                    json.dump(data.decode('cp1251'),f,ensure_ascii=False)
                 print(data)
             # Если сокет был закрыт на другой стороне
             except ConnectionResetError:
